@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Jayteck landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Jayteck Landing page | Free Bootstrap 4.3.x landing page</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="static/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Jayteck main styles -->
+    <link rel="stylesheet" href="static/css/Jayteck.css">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">Helper Hero</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">About</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#testmonial">Testimonial</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <!-- page header -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content container">
+            <h1 class="header-title">
+                <span class="up">HI!</span>
+                <span class="down">Welcome to Helper Hero,</span>
+            </h1>
+            <p class="header-subtitle">The all-in-one platform for seamless matching of employers with qualified house helps.</p>
+
+            <div class="btn-group">
+                 <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+                            </div>
+             <div class="btn-group">
+                 <a href="{% url 'my_login' %}" class="btn btn-primary">Login</a>
+                            </div>
+        </div>
+        </div>
+    </header><!-- end of page header -->
+
+    <!-- about section -->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="static/imgs/man.png" class="about-img">
+                </div>
+                <div class="about-caption">
+                    <p class="section-subtitle">Who Are We ?</p>
+                    <h2 class="section-title mb-3">About Us</h2>
+                    <p>
+                    At HelperHero, we believe a clean and well-maintained home shouldn't be a luxury in Kenya.<br><br>
+                    We understand the busy lives Kenyans lead, and the importance of having a reliable and trustworthy person to help manage your household.<br><br>
+                    That's why we created HelperHero, a mobile app that connects you with vetted and qualified househelps in your area. We take the stress out of finding the perfect fit, offering a secure platform for both homeowners and helpers.<br><br>
+                    Here's what sets HelperHero apart:
+                    Focus on Kenyan Needs: Built with the Kenyan market in mind, we understand the unique requirements of Kenyan households.<br>
+                    Rigorous Vetting Process: Our helpers go through a thorough verification process, including reference checks and background screenings, for your peace of mind.<br>
+                    Transparent Communication: Communicate directly with potential helpers through the platform, ensuring a clear understanding of expectations and needs.<br>
+                    Safe & Secure Transactions: Secure in- platform payment options ensure a smooth and hassle-free experience.
+                    <p>
+                    <strong>Our mission</strong> is to simplify household management for Kenyans and empower skilled househelps to find rewarding work. We believe in building a strong community based on trust, respect, and mutual benefit.
+                    </p>
+                    </p>
+                </div>
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section> <!-- end of about section -->
+
+    <!-- service section -->
+    <section class="section" id="service">
+        <div class="container text-center">
+            <p class="section-subtitle">What We Do ?</p>
+            <h6 class="section-title mb-6">Service</h6>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="static/imgs/pencil-case.svg" class="icon">
+                            <h6 class="title">Linking the society</h6>
+                            <p class="subtitle">We create a platform to link the employer with one seeking employment in house helping</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="static/imgs/responsive.svg" class="icon">
+                            <h6 class="title">Verifying & validating</h6>
+                            <p class="subtitle">Verifying and validating the information provided by both employers and employment seekers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="static/imgs/toolbox.svg" class="icon">
+                            <h6 class="title">Perfect matching</h6>
+                            <p class="subtitle">Uses algorithms that are optimized to give informative suggestions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="static/imgs/analytics.svg" class="icon">
+                            <h6 class="title">Secure communication system</h6>
+                            <p class="subtitle">Provide a platform for communication between the parties on the platform and also is very secure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of row -->
+        </div>
+    </section><!-- end of service section -->
+
+    <!-- section -->
+    <section class="section-sm bg-primary">
+        <!-- container -->
+        <div class="container text-center text-sm-left">
+            <!-- row -->
+            <div class="row align-items-center">
+                <div class="col-sm offset-md-1 mb-4 mb-md-0">
+                    <h6 class="title text-light">Want to work with Us?</h6>
+                    <p class="m-0 text-light">Always feel Free to Contact & Interact with us.</p>
+                </div>
+                <div class="col-sm offset-sm-2 offset-md-3">
+                </div>
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section> <!-- end of section -->
+
+    <!-- testimonial section -->
+    <section class="section" id="testmonial">
+        <div class="container text-center">
+            <p class="section-subtitle">What Clients Think About Us?</p>
+            <h6 class="section-title mb-6">Testimonial</h6>
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="static/imgs/avatar2.jpg" class="testimonial-card-img">
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">
+                            "We were looking for someone to help with our growing family, and HelperHero connected us with John. He's fantastic! John is not only great at cleaning but also a whiz with the kids. He helps keep the playroom organized, entertains the little ones for a bit while we make dinner, and even folds laundry in kid-sized increments! It's been a huge weight off our shoulders, and the kids adore him. We highly recommend HelperHero for anyone looking for a reliable and friendly house helper."
+                            </p>
+                            <h6 class="testimonial-card-title">The Patel Family, Mombasa</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="static/imgs/avatar3.jpg" class="testimonial-card-img">
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">
+                            "HelperHero has been a lifesaver! As a single mom with a demanding job, keeping up with housework used to feel impossible. Through the app, I found Sarah, a wonderful house helper who is reliable, thorough, and incredibly trustworthy. She takes care of everything from cleaning to laundry to even making sure my groceries are put away. Now, I can come home and actually relax, knowing my house is taken care of. Thanks, HelperHero!"
+                            <h6 class="testimonial-card-title">Jessica W., Nairobi</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end of container -->
+    </section> <!-- end of testimonial section -->
+
+    <!-- contact section -->
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you communicate?</p>
+            <h6 class="section-title mb-5">Contact Me</h6>
+            <!-- contact form -->
+            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="email" class="form-control" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea name="comment" id="comment" rows="6" class="form-control" placeholder="Write Something"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                    </div>
+                </div>
+            </form><!-- end of contact form -->
+        </div><!-- end of container -->
+    </section><!-- end of contact section -->
+
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.jayteck.com"></a>Jayteck Networks <a href="https://jk.com"></a> Coorp </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <script src="static/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="static/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="static/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Jayteck js -->
+    <script src="static/js/Jayteck.js"></script>
+
+</body>
+
+</html>

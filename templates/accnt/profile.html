@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .header {
+            width: 100%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .header a:hover {
+            color: #ffd700;
+        }
+        .content-wrapper {
+            flex: 1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .profile-picture {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border: 3px solid #6a11cb;
+        }
+        .profile-button {
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient button background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 16px;
+            width: 220px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .profile-button:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            transform: scale(1.05);
+        }
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+        }
+        .welcome-message {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #343a40;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .footer .social-icons {
+            margin: 10px 0;
+        }
+        .footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .footer .social-icons a:hover {
+            color: #6a11cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/">Home</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% endif %}
+    </div>
+
+    <div class="content-wrapper container">
+        <h2>Welcome, {{ user.email }}</h2>
+        <div class="welcome-message">
+            <p>We're glad to have you here! Use the buttons below to update your profile or explore options related to househelp services.</p>
+        </div>
+        {% if user.profile_picture %}
+            <img src="{{ user.profile_picture.url }}" alt="{{ user.email }}'s Profile Picture" class="profile-picture">
+        {% endif %}
+
+        <div class="nav-buttons">
+            <a href="{% url 'house_employer_registration' %}">
+                <button class="profile-button">Update Employer Profile</button>
+            </a>
+            <a href="{% url 'house-registration' %}">
+                <button class="profile-button">Update Client Profile</button>
+            </a>
+            <a href="{% url 'house_help_list' %}">
+                <button class="profile-button">Find Househelp</button>
+            </a>
+            <a href="{% url 'employer_list' %}">
+                <button class="profile-button">Looking for Employment</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Jayteck Networks Coop. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional for form styling) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

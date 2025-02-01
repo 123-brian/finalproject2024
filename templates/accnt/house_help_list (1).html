@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}House Help List{% endblock %}
+
+{% block content %}
+    <div style="float: right; margin-top: 10px;">
+        {% if user.is_authenticated %}
+            <img src="{% if user.househelp.profile_picture %}{{ user.househelp.profile_picture.url }}{% else %}path_to_default_image.jpg{% endif %}" alt="Profile Picture" style="width: 50px; height: 50px; border-radius: 50%;">
+            <span>{{ user.username }}</span>
+        {% endif %}
+    </div>
+
+    <h1>House Help List</h1>
+    <ul>
+        {% for house_help in house_helps %}
+            <li>
+                <div style="float: left; margin-right: 10px;">
+                    <img src="{% if house_help.profile_picture %}{{ house_help.profile_picture.url }}{% else %}path_to_default_image.jpg{% endif %}" alt="Profile Picture" style="width: 50px; height: 50px; border-radius: 50%;">
+                </div>
+                <div>
+                    <strong>Username:</strong> {{ house_help.username }}<br>
+                    <strong>Email:</strong> {{ house_help.email }}<br>
+                    <strong>Phone Number:</strong> {{ house_help.phone_number }}<br>
+                    <strong>Name:</strong> {{ house_help.first_name }} {{ house_help.last_name }}<br>
+                    <strong>Location:</strong> {{ house_help.location }}<br>
+                    <strong>Job Titles:</strong> {{ house_help.job_titles }}<br>
+                    <strong>Experience:</strong> {{ house_help.experience }}<br>
+                    <strong>References:</strong> {{ house_help.references }}<br>
+                    <strong>Availability:</strong> {{ house_help.availability }}<br>
+                    {% if house_help.rate %}
+                        <strong>Rate:</strong> Ksh. {{ house_help.rate }} per hour<br>
+                    {% endif %}
+                    {% if house_help.background_check %}
+                        <strong>Background Check:</strong> <a href="{{ house_help.background_check.url }}">Download</a><br>
+                    {% endif %}
+                </div>
+                <div style="clear: both;"></div>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+{% endblock %}

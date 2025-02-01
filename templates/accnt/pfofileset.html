@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Employer</title>
+    <style>
+        body {
+            background: rgb(99, 39, 120);
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #BA68C8;
+        }
+        .profile-button {
+            background: rgb(99, 39, 120);
+            box-shadow: none;
+            border: none;
+        }
+        .profile-button:hover {
+            background: #682773;
+        }
+        .profile-button:focus {
+            background: #682773;
+            box-shadow: none;
+        }
+        .profile-button:active {
+            background: #682773;
+            box-shadow: none;
+        }
+        .back:hover {
+            color: #682773;
+            cursor: pointer;
+        }
+        .labels {
+            font-size: 11px;
+        }
+        .add-experience:hover {
+            background: #BA68C8;
+            color: #fff;
+            cursor: pointer;
+            border: solid 1px #BA68C8;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-5 offset-md-3 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Employer Registration</h4>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="labels">Username</label>
+                            {{ form.username|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Email</label>
+                            {{ form.email|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Password</label>
+                            {{ form.password|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">First Name</label>
+                            {{ form.first_name|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Last Name</label>
+                            {{ form.last_name|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Phone Number</label>
+                            {{ form.phone_number|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Location</label>
+                            {{ form.location|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Number of People</label>
+                            {{ form.number_of_people|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Specific Needs</label>
+                            {{ form.specific_needs|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Frequency of Service</label>
+                            {{ form.frequency_of_service|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label class="labels">Profile Picture</label>
+                            {{ form.profile_picture|add_class:"form-control" }}
+                        </div>
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

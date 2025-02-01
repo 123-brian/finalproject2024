@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% block title %}House Help List{% endblock %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <title>House Help List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #343a40;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .header {
+            width: 100%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .header a:hover {
+            color: #ffd700;
+        }
+        .content-wrapper {
+            flex: 1;
+            padding: 40px 20px;
+        }
+        .house-help-list h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        .house-help-card {
+            background: #ffffff;
+            color: #343a40;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .house-help-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .house-help-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #6a11cb;
+        }
+        .house-help-card strong {
+            color: #343a40;
+            font-weight: 600;
+        }
+        .no-profile-picture {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #dee2e6;
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .close {
+            color: #343a40;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #495057;
+            text-decoration: none;
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .footer .social-icons {
+            margin: 10px 0;
+        }
+        .footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .footer .social-icons a:hover {
+            color: #6a11cb;
+        }
+        @media (max-width: 767px) {
+            .house-help-card {
+                margin-bottom: 15px;
+            }
+            .modal-content {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/">Home</a>
+        {% if user.is_authenticated %}
+            <span>Logged in as {{ user.username }}</span>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% endif %}
+    </div>
+
+    <div class="content-wrapper container">
+        <h1>House Help List</h1>
+        <div class="row">
+            {% for house_help in house_helps %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="house-help-card">
+                        {% if house_help.profile_picture %}
+                            <img src="{{ house_help.profile_picture.url }}" alt="{{ house_help.username }}'s Profile Picture">
+                        {% else %}
+                            <div class="no-profile-picture">No profile picture available</div>
+                        {% endif %}
+                        <div>
+                            <strong>Username:</strong> {{ house_help.username }}<br>
+                            <strong>Email:</strong> {{ house_help.email }}<br>
+                            <strong>Phone Number:</strong> {{ house_help.phone_number }}<br>
+                            <strong>Name:</strong> {{ house_help.first_name }} {{ house_help.last_name }}<br>
+                            <strong>Location:</strong> {{ house_help.location }}<br>
+                            <strong>Job Titles:</strong> {{ house_help.job_titles }}<br>
+                            <strong>Experience:</strong> {{ house_help.experience }}<br>
+                            <strong>References:</strong> {{ house_help.references }}<br>
+                            <strong>Availability:</strong> {{ house_help.availability }}<br>
+                            {% if house_help.rate %}
+                                <strong>Rate:</strong> Ksh. {{ house_help.rate }} per month<br>
+                            {% endif %}
+                            {% if house_help.background_check %}
+                                <strong>Background Check:</strong> <a href="{{ house_help.background_check.url }}" style="color: #6a11cb;">Download</a><br>
+                            {% endif %}
+                        </div>
+                        <button class="btn" onclick="openModal('{{ house_help.id }}')">Contact</button>
+                    </div>
+                </div>
+
+                <div id="modal-{{ house_help.id }}" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('{{ house_help.id }}')">&times;</span>
+                        <h2>Contact {{ house_help.username }}</h2>
+                        <p>Email: {{ house_help.email }}</p>
+                        <p>Phone: {{ house_help.phone_number }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Jayteck Networks Coop. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            const modal = document.getElementById('modal-' + id);
+            modal.style.display = "block";
+            setTimeout(() => {
+                modal.style.opacity = "1";
+                document.querySelector('#modal-' + id + ' .modal-content').style.transform = 'translateY(0)';
+            }, 10);
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById('modal-' + id);
+            modal.style.opacity = "0";
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        window.onclick = function(event) {
+            var modals = document.getElementsByClassName('modal');
+            for (var i = 0; i < modals.length; i++) {
+                if (event.target === modals[i]) {
+                    modals[i].style.opacity = "0";
+                    setTimeout(() => {
+                        modals[i].style.display = "none";
+                    }, 300);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+{% endblock %}
